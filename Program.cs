@@ -1,19 +1,20 @@
 ﻿using Microsoft.ML.OnnxRuntimeGenAI;
 
 // 提供存放 Phi-3 的 ONNX 模型資料夾位置，該資料夾內必須要有 .onnx 檔案
-var modelPath = "C:\\Users\\poychang\\Code\\onnx\\Phi-3-mini-4k-instruct-onnx\\cpu_and_mobile\\cpu-int4-rtn-block-32";
+var modelPath = "C:\\Users\\poypo\\Code\\onnx\\Phi-3-mini-4k-instruct-onnx\\cpu_and_mobile\\cpu-int4-rtn-block-32";
 var model = new Model(modelPath);
 var tokenizer = new Tokenizer(model);
 
 // 設定 System Prompt 提示 AI 如何回答 User Prompt
 var systemPrompt = "You are a knowledgeable and friendly assistant. Answer the following question as clearly and concisely as possible, providing any relevant information and examples.";
 
+Console.WriteLine("Type Prompt then Press [Enter] or CTRL-C to Exit");
+Console.WriteLine("");
+
 // 模擬使用者和 AI　一問一答
 while (true)
 {
     // 取得 User Prompt
-    Console.WriteLine("Type Prompt then Press [Enter] or CTRL-C to Exit");
-    Console.WriteLine("");
     Console.Write("User: ");
     var userPrompt = Console.ReadLine();
 

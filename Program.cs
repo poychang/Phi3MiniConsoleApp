@@ -1,7 +1,10 @@
 ﻿using Microsoft.ML.OnnxRuntimeGenAI;
 
 // 提供存放 Phi-3 的 ONNX 模型資料夾位置，該資料夾內必須要有 .onnx 檔案
-var modelPath = "C:\\Users\\poypo\\Code\\onnx\\Phi-3-mini-4k-instruct-onnx\\cpu_and_mobile\\cpu-int4-rtn-block-32";
+// CPU version
+var modelPath = "C:\\onnx\\Phi-3-mini-4k-instruct-onnx\\cpu_and_mobile\\cpu-int4-rtn-block-32";
+// GPU version
+//var modelPath = "C:\\onnx\\Phi-3-mini-4k-instruct-onnx\\cuda\\cuda-int4-rtn-block-32";
 var model = new Model(modelPath);
 var tokenizer = new Tokenizer(model);
 

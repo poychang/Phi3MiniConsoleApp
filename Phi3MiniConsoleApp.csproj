@@ -8,9 +8,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <!-- CPU version -->
         <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.18.0" />
         <PackageReference Include="Microsoft.ML.OnnxRuntimeGenAI" Version="0.2.0" />
         <PackageReference Include="Microsoft.ML.OnnxRuntimeGenAI.Managed" Version="0.2.0" />
+        <!-- GPU version -->
+        <!-- ONNX Runtime v1.18 default use CUDA v11.8 and cuDNN v8.9 -->
+        <!-- Check your environment first! -->
+        <!--<PackageReference Include="Microsoft.ML.OnnxRuntimeGenAI.Cuda" Version="0.2.0" />
+        <PackageReference Include="Microsoft.ML.OnnxRuntime.Gpu" Version="1.18.0-dev-20240510-0341-d72b476723" />-->
     </ItemGroup>
 
 </Project>

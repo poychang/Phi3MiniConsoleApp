@@ -15,7 +15,7 @@
         <!-- GPU version -->
         <!-- ONNX Runtime v1.18 default use CUDA v11.8 and cuDNN v8.9 -->
         <!-- Check your environment first!
-             download CUDA Toolkit 11.8 from https://developer.nvidia.com/cuda-11-8-0-download-archive
+             download CUDA Toolkit 11.8 from https://developer.nvidia.com/cuda-toolkit-archive
              download cuDNN v8.9.x from https://developer.nvidia.com/rdp/cudnn-archive
         -->
         <!--<PackageReference Include="Microsoft.ML.OnnxRuntimeGenAI.Cuda" Version="0.2.0" />

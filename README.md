@@ -115,6 +115,9 @@ var tokenizer = new Tokenizer(model);
 // 設定 System Prompt 提示 AI 如何回答 User Prompt
 var systemPrompt = "You are a knowledgeable and friendly assistant. Answer the following question as clearly and concisely as possible, providing any relevant information and examples.";
 
+Console.WriteLine("Type Prompt then Press [Enter] or CTRL-C to Exit");
+Console.WriteLine("");
+
 // 模擬使用者和 AI　一問一答
 while (true)
 {

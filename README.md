@@ -191,7 +191,7 @@ while (true)
 <PackageReference Include="Microsoft.ML.OnnxRuntime.Gpu" Version="1.18.0-dev-20240510-0341-d72b476723" />
 ```
 
-接著執行環境中，我們需要安裝 CUDA Toolkit v11.8 和 cuDNN v8.9.x，版本很重要，不然會有不相容的問題，這跟 ONNX Runtime 的版本支援有關。安裝完成後，還需要在 Windows 的環境變數中微調一下，將 `Path` 環境變數加入下面兩個路徑，讓 ONNX Runtime 可以找到 CUDA 和 cuDNN 相關的執行檔和函式庫。
+接著執行環境中，我們需要安裝 [CUDA Toolkit v11.8](https://developer.nvidia.com/cuda-toolkit-archive) 和 [cuDNN v8.9.x](https://developer.nvidia.com/rdp/cudnn-archive)，版本很重要，不然會有不相容的問題，這跟 ONNX Runtime 的版本支援有關。安裝完成後，還需要在 Windows 的環境變數中微調一下，將 `Path` 環境變數加入下面兩個路徑，讓 ONNX Runtime 可以找到 CUDA 和 cuDNN 相關的執行檔和函式庫。
 
 ```
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin

@@ -174,6 +174,32 @@ while (true)
 
 測試起來，用英文對話可以很正確的回答問題，但改用中文的時候，會有許多奇妙的狀況發生。不過這也是可以預期的，畢竟這種 SLM 模型，基本上都是使用英文作為訓練材料，所以對於中文的處理能力就會比較弱。或許之後可以透過 Fine-tuning 的方式，來提升中文的處理能力，可以再研究看看。
 
+另外，上面的範例說明都是以 CPU 運算的環境來執行，事實上，完整的範例程式中，我有標註可以改用 GPU 的環境來加速運算，要切換的做法如下：
+
+將相依的 ONNX 套件換成 `Microsoft.ML.OnnxRuntimeGenAI.Cuda` 和 `Microsoft.ML.OnnxRuntime.Gpu`，但由於 `Microsoft.ML.OnnxRuntime.Gpu` 目前還在 Preview 階段，所以要加入 `nuget.config` 並設定 NuGet 來源為 ONNX 團隊的私有 Feed，這樣才能夠下載到這個套件。
+
+完成後的 `csproj` 檔案會向下面這樣：
+
+```xml
+<!-- GPU version -->
+<!-- ONNX Runtime v1.18 default use CUDA v11.8 and cuDNN v8.9 -->
+<!-- Check your environment first!
+      download CUDA Toolkit v11.8 from https://developer.nvidia.com/cuda-toolkit-archive
+      download cuDNN v8.9.x from https://developer.nvidia.com/rdp/cudnn-archive
+-->
+<PackageReference Include="Microsoft.ML.OnnxRuntimeGenAI.Cuda" Version="0.2.0" />
+<PackageReference Include="Microsoft.ML.OnnxRuntime.Gpu" Version="1.18.0-dev-20240510-0341-d72b476723" />
+```
+
+接著執行環境中，我們需要安裝 CUDA Toolkit v11.8 和 cuDNN v8.9.x，版本很重要，不然會有不相容的問題，這跟 ONNX Runtime 的版本支援有關。安裝完成後，還需要在 Windows 的環境變數中微調一下，將 `Path` 環境變數加入下面兩個路徑，讓 ONNX Runtime 可以找到 CUDA 和 cuDNN 相關的執行檔和函式庫。
+
+```
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin
+C:\Program Files\NVIDIA GPU Computing Toolkit\cuDNN\v8.9.7\bin
+```
+
+最後，調整 `Program.cs` 中的 `modelPath` 變數，改成支援 GPU 的模型路徑，這樣就可以使用 CUDA 版本的模型，享受暢快的 AI 對話體驗。
+
 ---
 
 參考資料：

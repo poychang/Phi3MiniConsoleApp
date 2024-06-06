@@ -176,7 +176,7 @@ while (true)
 
 另外，上面的範例說明都是以 CPU 運算的環境來執行，事實上，完整的範例程式中，我有標註可以改用 GPU 的環境來加速運算，要切換的做法如下：
 
-將相依的 ONNX 套件換成 `Microsoft.ML.OnnxRuntimeGenAI.Cuda` 和 `Microsoft.ML.OnnxRuntime.Gpu`，但由於 `Microsoft.ML.OnnxRuntime.Gpu` 目前還在 Preview 階段，所以要加入 `nuget.config` 並設定 NuGet 來源為 ONNX 團隊的私有 Feed，這樣才能夠下載到這個套件。
+將相依的 ONNX 套件換成 `Microsoft.ML.OnnxRuntimeGenAI.Cuda` 和 `Microsoft.ML.OnnxRuntime.Gpu`，但由於支援 CUDA v12 的 `Microsoft.ML.OnnxRuntime.Gpu` 目前還在 Preview 階段，所以要加入 `nuget.config` 並設定 NuGet 來源為 ONNX 團隊的私有 Feed，這樣才能夠下載到這個套件。
 
 完成後的 `csproj` 檔案會向下面這樣：
 
